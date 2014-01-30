@@ -1,10 +1,13 @@
-#include <cstdlib>
-#include <iostream>
 #include <string>
+#include <iostream>
+#include <cstdlib>
 #include <cstdio>
 #include <conio.h>
 #include <time.h>
 
+/*
+  Harap saat console terbuka ukuran permainan di Maximize
+*/
 
 using namespace std;
 
@@ -30,7 +33,6 @@ struct Musuh{
     DirectionX pastDirX;
     DirectionY pastDirY;
 };
-
 
 unsigned char MoveMusuh(Musuh& musuh, unsigned char maze[tinggi][lebar], int i, int j, string& smove, bool& nc){
     if(nc){
@@ -245,13 +247,11 @@ unsigned char MoveMusuh(Musuh& musuh, unsigned char maze[tinggi][lebar], int i, 
     return maze[i][j];
 }
 
-
-// lanjut program utama nya 
-
-
 int main()
 {
-     unsigned char maze[tinggi][lebar] = {
+    srand (time(NULL));
+
+    unsigned char maze[tinggi][lebar] = {
     '#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#',
     ' ',' ',' ',' ',' ',' ',' ','#',' ','#',' ',' ',' ','#','#',' ','#',' ',' ',' ',' ',' ','#',' ',' ',' ','#',' ',' ',' ',' ',' ',' ',' ','#',' ',' ',' ',' ','#',
     '#','#','#','#',' ','#',' ','#',' ','#',' ','#',' ','#',' ',' ','#',' ','#','#','#',' ','#','#','#',' ','#',' ','#','#','#',' ','#',' ','#',' ','#','#',' ','#',
@@ -290,8 +290,8 @@ int main()
     musuh1.y = rand()%tinggi;
     musuh1.pastDirX = Left;
     musuh1.pastDirY = Up;
-    
-        while(maze[musuh1.y][musuh1.x] != ' '){
+
+    while(maze[musuh1.y][musuh1.x] != ' '){
         musuh1.x = rand()%lebar;
         musuh1.y = rand()%tinggi;
     }
@@ -364,7 +364,8 @@ int main()
     string prevmove3 = "NA";
     string prevmove4 = "NA";
     string prevmove5 = "NA";
-    
+
+
     while(kalah){
         if(maze[player.y][player.x] == ' '){
             maze[player.y][player.x] = player.sprite;
@@ -463,10 +464,22 @@ int main()
     if(player.x==musuh5.x && player.y==musuh5.y){
         Hp=Hp-30;
     }
-
-//ga overflow mang
-//help bkin validasi pas HP=0/finish nya bro    
-
+    
+    //Aturan Permainan
+    //Jika Hp (Nyawa) <=0 maka permainan dinyatakan kalah
+    //Jika berhasil keluar, dinyatakan menang
+    if(Hp<=0){
+        cout<<endl<<endl<<"Maaf Kamu Kalah !"<<endl<<endl;
+        system("PAUSE");
+        kalah = false;
+    }
+    if(player.x == lebar-1){
+        cout<<endl<<endl<<"Selamat Anda Menang !"<<endl<<endl;
+        system("PAUSE");
+        kalah = false;
+        system("PAUSE");
+    }
     system("CLS");
 }
 }
+
