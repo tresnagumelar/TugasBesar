@@ -246,6 +246,7 @@ unsigned char MoveMusuh(Musuh& musuh, unsigned char maze[tinggi][lebar], int i, 
 }
 
 
+// lanjut program utama nya 
 
 
 int main()
@@ -289,6 +290,81 @@ int main()
     musuh1.y = rand()%tinggi;
     musuh1.pastDirX = Left;
     musuh1.pastDirY = Up;
+    
+        while(maze[musuh1.y][musuh1.x] != ' '){
+        musuh1.x = rand()%lebar;
+        musuh1.y = rand()%tinggi;
+    }
+    if(maze[musuh1.y][musuh1.x] == ' '){
+        maze[musuh1.y][musuh1.x] = musuh1.sprite;
+    }
+
+    Musuh musuh2;
+    musuh2.sprite = '<';
+    musuh2.x = rand()%lebar;
+    musuh2.y = rand()%tinggi;
+    musuh2.pastDirX = Left;
+    musuh2.pastDirY = Up;
+
+    while(maze[musuh2.y][musuh2.x] != ' '){
+        musuh2.x = rand()%lebar;
+        musuh2.y = rand()%tinggi;
+    }
+    if(maze[musuh2.y][musuh2.x] == ' '){
+        maze[musuh2.y][musuh2.x] = musuh2.sprite;
+    }
+
+    Musuh musuh3;
+    musuh3.sprite = '<';
+    musuh3.x = rand()%lebar;
+    musuh3.y = rand()%tinggi;
+    musuh3.pastDirX = Left;
+    musuh3.pastDirY = Up;
+
+    while(maze[musuh3.y][musuh3.x] != ' '){
+        musuh3.x = rand()%lebar;
+        musuh3.y = rand()%tinggi;
+    }
+    if(maze[musuh3.y][musuh3.x] == ' '){
+        maze[musuh3.y][musuh3.x] = musuh3.sprite;
+    }
+
+    Musuh musuh4;
+    musuh4.sprite = '<';
+    musuh4.x = rand()%lebar;
+    musuh4.y = rand()%tinggi;
+    musuh4.pastDirX = Left;
+    musuh4.pastDirY = Up;
+
+    while(maze[musuh4.y][musuh4.x] != ' '){
+        musuh4.x = rand()%lebar;
+        musuh4.y = rand()%tinggi;
+    }
+    if(maze[musuh4.y][musuh4.x] == ' '){
+        maze[musuh4.y][musuh4.x] = musuh4.sprite;
+    }
+
+    Musuh musuh5;
+    musuh5.sprite = '<';
+    musuh5.x = rand()%lebar;
+    musuh5.y = rand()%tinggi;
+    musuh5.pastDirX = Left;
+    musuh5.pastDirY = Up;
+
+    while(maze[musuh5.y][musuh5.x] != ' '){
+        musuh5.x = rand()%lebar;
+        musuh5.y = rand()%tinggi;
+    }
+    if(maze[musuh5.y][musuh5.x] == ' '){
+        maze[musuh5.y][musuh5.x] = musuh5.sprite;
+    }
+
+    string prevmove1 = "NA";
+    string prevmove2 = "NA";
+    string prevmove3 = "NA";
+    string prevmove4 = "NA";
+    string prevmove5 = "NA";
+
 
     system("PAUSE");
     return EXIT_SUCCESS;
