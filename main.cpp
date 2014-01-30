@@ -365,6 +365,73 @@ int main()
     string prevmove4 = "NA";
     string prevmove5 = "NA";
 
+    while(kalah){
+        if(maze[player.y][player.x] == ' '){
+            maze[player.y][player.x] = player.sprite;
+    }
+
+    maze[musuh1.y][musuh1.x] = musuh1.sprite;
+    maze[musuh2.y][musuh2.x] = musuh2.sprite;
+    maze[musuh3.y][musuh3.x] = musuh3.sprite;
+    maze[musuh4.y][musuh4.x] = musuh4.sprite;
+    maze[musuh5.y][musuh5.x] = musuh5.sprite;
+
+    for(int y=0 ; y<tinggi ; y++){
+        cout<<endl;
+        for(int x=0 ; x<lebar ; x++){
+            cout<<maze[y][x];
+        }
+    }
+
+    cout<<endl;
+    cout<<endl<<"HP: "<<Hp;
+
+    char key = getch();
+
+    switch(key){
+        case key_kiri:
+            if(maze[player.y][player.x-1] != '#'){
+                maze[player.y][player.x] = ' ';
+                player.x--;
+                if(maze[player.y][player.x-1] == '<'){
+                    Hp=Hp-20;
+                }
+            }
+            break;
+        case key_atas:
+            if(maze[player.y-1][player.x] != '#'){
+                maze[player.y][player.x] = ' ';
+                player.y--;
+                if(maze[player.y-1][player.x] == '<'){
+                    Hp=Hp-20;
+                }
+            }
+            break;
+        case key_bawah:
+            if(maze[player.y+1][player.x] != '#'){
+                maze[player.y][player.x] = ' ';
+                player.y++;
+                if(maze[player.y+1][player.x] == '<'){
+                    Hp=Hp-20;
+                }
+            }
+            break;
+        case key_kanan:
+            if(maze[player.y][player.x+1] != '#'){
+                maze[player.y][player.x] = ' ';
+                player.x++;
+                if(maze[player.y][player.x+1] == '<'){
+                    Hp=Hp-20;
+                }
+            }
+            break;
+        case 'q':
+            exit(0);
+            break;
+    }
+
+     //ada error nya gan, help dong fix-in
+
 
     system("PAUSE");
     return EXIT_SUCCESS;
