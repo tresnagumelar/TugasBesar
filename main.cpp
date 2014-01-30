@@ -209,10 +209,43 @@ unsigned char MoveMusuh(Musuh& musuh, unsigned char maze[tinggi][lebar], int i, 
         else if(musuh.pastDirY == Down && psbDown){
             move = down;
         }
-}
+        
+        switch(move){
+            case up:
+                maze[musuh.y][musuh.x] = ' ';
+                musuh.pastDirY = Up;
+                smove = "up";
+                musuh.y--;
+                break;
+            case right:
+                maze[musuh.y][musuh.x] = ' ';
+                musuh.pastDirX = Right;
+                smove = "right";
+                musuh.x++;
+                break;
+            case down:
+                maze[musuh.y][musuh.x] = ' ';
+                musuh.pastDirY = Down;
+                smove = "down";
+                musuh.y++;
+                break;
+            case left:
+                maze[musuh.y][musuh.x] = ' ';
+                musuh.pastDirX = Left;
+                smove = "left";
+                musuh.x--;
+                break;
+            case NA:
+                smove = "NA";
+                break;
+        }
+    }
+    nc = false;
+    return maze[i][j];
 }
 
-//belum beres, edit lagi gan
+
+// lanjut program utamanya mang
 
 
 int main()
