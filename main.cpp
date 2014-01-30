@@ -364,7 +364,7 @@ int main()
     string prevmove3 = "NA";
     string prevmove4 = "NA";
     string prevmove5 = "NA";
-
+    
     while(kalah){
         if(maze[player.y][player.x] == ' '){
             maze[player.y][player.x] = player.sprite;
@@ -429,9 +429,8 @@ int main()
             exit(0);
             break;
     }
-
-     //ada error nya gan, help dong fix-in
-
+}
+     //udah ga error cuma masih overflow, help!
 
     system("PAUSE");
     return EXIT_SUCCESS;
