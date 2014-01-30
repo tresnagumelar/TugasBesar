@@ -429,9 +429,44 @@ int main()
             exit(0);
             break;
     }
-}
-     //udah ga error cuma masih overflow, help!
 
-    system("PAUSE");
-    return EXIT_SUCCESS;
+    //int x = musuh1.x;
+    //int y = musuh1.y;
+    bool once1 = true;
+    bool once2 = true;
+    bool once3 = true;
+    bool once4 = true;
+    bool once5 = true;
+
+    for(int i=0; i<tinggi; i++){
+        for(int j=0; j<lebar; j++){
+            maze[i][j] = MoveMusuh(musuh1, maze, i, j, prevmove1, once1);
+            maze[i][j] = MoveMusuh(musuh2, maze, i, j, prevmove2, once2);
+            maze[i][j] = MoveMusuh(musuh3, maze, i, j, prevmove3, once3);
+            maze[i][j] = MoveMusuh(musuh4, maze, i, j, prevmove4, once4);
+            maze[i][j] = MoveMusuh(musuh5, maze, i, j, prevmove5, once5);
+        }
+    }
+
+    if(player.x==musuh1.x && player.y==musuh1.y){
+        Hp=Hp-30;
+    }
+    if(player.x==musuh2.x && player.y==musuh2.y){
+        Hp=Hp-30;
+    }
+    if(player.x==musuh3.x && player.y==musuh3.y){
+        Hp=Hp-30;
+    }
+    if(player.x==musuh4.x && player.y==musuh4.y){
+        Hp=Hp-30;
+    }
+    if(player.x==musuh5.x && player.y==musuh5.y){
+        Hp=Hp-30;
+    }
+
+//ga overflow mang
+//help bkin validasi pas HP=0/finish nya bro    
+
+    system("CLS");
+}
 }
